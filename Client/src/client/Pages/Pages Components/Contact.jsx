@@ -42,75 +42,84 @@ const Contact = () => {
   };
 
   return (
-    <div className="py-16 px-6 sm:px-12 w-full lg:px-24 bg-gray-50">
+    <div className="py-8 px-6 sm:px-12 w-full lg:px-20 bg-gradient-to-br from-gray-900 via-gray-800 to-black text-gray-100">
       {/* Notification Message */}
       {showNotification && (
         <div
-          className={`fixed top-5 right-5 text-white py-3 px-6 rounded-lg shadow-lg transition-opacity duration-300 ${submitted ? "bg-green-500" : "bg-red-500"}`}
+          className={`fixed top-5 right-5 text-white py-3 px-6 rounded-lg shadow-lg transition-opacity duration-300 ${
+            submitted ? "bg-green-500" : "bg-red-500"
+          }`}
         >
           <span>{result}</span>
         </div>
       )}
 
       {/* Heading */}
-      <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl  text-center mb-10">
+      <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl text-center mb-8 text-amber-400">
         Contact Me
       </h1>
 
       {/* Contact Section */}
-      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-12">
+      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8">
         {/* Left - Contact Details */}
-        <div className="w-full lg:w-1/2 flex flex-col items-center gap-8 px-4">
-          <h2 className="text-2xl sm:text-3xl text-center font-semibold">
-            Let's discuss something <span className="text-blue-500">Cool</span> Together
+        <div className="w-full lg:w-1/2 flex flex-col items-center gap-6 px-4">
+          <h2 className="text-3xl sm:text-4xl text-center font-semibold text-yellow-400">
+            Let's discuss something{" "}
+            <span className="text-teal-400">Awesome</span> Together
           </h2>
 
-          <div className="space-y-6 text-center">
-            <div className="text-lg flex justify-center items-center">
-              <IoIosMail className="mr-3 text-orange-500" />
-              <a href="mailto:aditya895754@gmail.com" className="hover:text-blue-500 transition-all">
+          <div className="space-y-4 text-center">
+            <div className="text-lg flex justify-center items-center transition-transform transform hover:scale-105">
+              <IoIosMail className="mr-3 text-teal-400" />
+              <a
+                href="mailto:aditya895754@gmail.com"
+                className="hover:text-yellow-400 transition-all"
+              >
                 aditya895754@gmail.com
               </a>
             </div>
-            <div className="text-lg flex justify-center items-center">
-              <IoIosCall className="mr-3 text-cyan-400" />
-              <a href="tel:8957545504" className="hover:text-blue-500 transition-all">
+            <div className="text-lg flex justify-center items-center transition-transform transform hover:scale-105">
+              <IoIosCall className="mr-3 text-teal-400" />
+              <a
+                href="tel:8957545504"
+                className="hover:text-yellow-400 transition-all"
+              >
                 8957545504
               </a>
             </div>
-            <div className="text-lg flex justify-center items-center">
-              <FaLocationDot className="mr-3 text-blue-600" />
+            <div className="text-lg flex justify-center items-center transition-transform transform hover:scale-105">
+              <FaLocationDot className="mr-3 text-teal-400" />
               <span>UP 52 Deoria (Uttar Pradesh)</span>
             </div>
           </div>
 
-          <div className="gap-6 flex justify-center text-2xl">
+          <div className="gap-5 flex justify-center text-3xl">
             <a
-              className="text-blue-500 hover:text-blue-700 transition-all"
+              className="text-teal-400 hover:text-teal-500 transition-all transform hover:scale-110"
               href="https://www.linkedin.com/in/aditya-tiwari-31b785250/"
             >
               <FaLinkedin />
             </a>
             <a
-              className="text-gray-800 hover:text-gray-900 transition-all"
+              className="text-gray-100 hover:text-gray-200 transition-all transform hover:scale-110"
               href="https://github.com/Adityatitu01"
             >
               <FaGithub />
             </a>
             <a
-              className="text-cyan-500 hover:text-cyan-600 transition-all"
+              className="text-teal-400 hover:text-teal-500 transition-all transform hover:scale-110"
               href="https://x.com/AdityaTituu"
             >
               <FaTwitter />
             </a>
             <a
-              className="text-yellow-500 hover:text-yellow-600 transition-all"
+              className="text-yellow-400 hover:text-yellow-500 transition-all transform hover:scale-110"
               href="https://leetcode.com/u/adityatitu01/"
             >
               <SiLeetcode />
             </a>
             <a
-              className="text-pink-500 hover:text-pink-600 transition-all"
+              className="text-pink-400 hover:text-pink-500 transition-all transform hover:scale-110"
               href="#"
             >
               <FaInstagram />
@@ -119,20 +128,23 @@ const Contact = () => {
         </div>
 
         {/* Right - Contact Form */}
-        <div className="w-full lg:w-1/2 flex justify-center rounded-xl py-8 px-4">
+        <div className="w-full lg:w-1/2 flex justify-center rounded-xl py-6 px-4">
           <form
             onSubmit={onSubmit}
-            className="max-w-lg w-full bg-white p-8 rounded-lg shadow-xl transition-transform transform hover:scale-105"
+            className="max-w-lg w-full bg-gradient-to-br from-teal-900 via-teal-800 to-teal-700 p-6 rounded-lg shadow-xl transition-transform transform hover:scale-105 hover:shadow-2xl"
           >
-            <h2 className="text-2xl sm:text-3xl font-semibold mb-6 text-center">
+            <h2 className="text-3xl sm:text-4xl font-semibold mb-4 text-center text-yellow-400">
               Get in Touch
             </h2>
-            <div className="mb-6">
-              <label className="block text-lg font-semibold text-gray-700 mb-2" htmlFor="name">
+            <div className="mb-4">
+              <label
+                className="block text-lg font-semibold text-yellow-300 mb-2"
+                htmlFor="name"
+              >
                 Name
               </label>
               <input
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-3 bg-teal-800 border border-teal-600 text-yellow-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-shadow"
                 type="text"
                 id="name"
                 name="name"
@@ -140,12 +152,15 @@ const Contact = () => {
                 required
               />
             </div>
-            <div className="mb-6">
-              <label className="block text-lg font-semibold text-gray-700 mb-2" htmlFor="email">
+            <div className="mb-4">
+              <label
+                className="block text-lg font-semibold text-yellow-300 mb-2"
+                htmlFor="email"
+              >
                 Email
               </label>
               <input
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-3 bg-teal-800 border border-teal-600 text-yellow-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-shadow"
                 type="email"
                 id="email"
                 name="email"
@@ -153,12 +168,15 @@ const Contact = () => {
                 required
               />
             </div>
-            <div className="mb-6">
-              <label className="block text-lg font-semibold text-gray-700 mb-2" htmlFor="message">
+            <div className="mb-4">
+              <label
+                className="block text-lg font-semibold text-yellow-300 mb-2"
+                htmlFor="message"
+              >
                 Message
               </label>
               <textarea
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-3 bg-teal-800 border border-teal-600 text-yellow-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-shadow"
                 id="message"
                 rows="4"
                 name="message"
@@ -167,7 +185,7 @@ const Contact = () => {
               />
             </div>
             <button
-              className="w-full py-3 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition-all"
+              className="w-full py-3 bg-yellow-500 text-teal-900 rounded-lg font-semibold hover:bg-yellow-600 transition-all transform hover:scale-105"
               type="submit"
             >
               {isSending ? "Sending..." : "Send Message"}

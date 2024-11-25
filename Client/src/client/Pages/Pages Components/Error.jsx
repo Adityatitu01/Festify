@@ -15,29 +15,29 @@ const Error = ({ setShowNavAndFooter }) => {
   }, [setShowNavAndFooter]);
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-b from-gray-900 via-black to-gray-900 text-white">
+    <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-b from-gray-800 to-gray-900 text-indigo-50">
       {/* Animated 404 Text */}
-      <h1 className="text-9xl font-bold text-center tracking-widest glow-effect">
-        404
+      <h1 className="text-8xl font-bold text-center tracking-wide text-yellow-500 animate-fade-in-up">
+        Oops!
       </h1>
-      <p className="text-xl md:text-2xl mt-4 font-medium animate-fade-in text-gray-300 text-center">
-        Uh-oh! We can't find the page you're looking for.
+      <p className="text-2xl mt-4 font-medium animate-fade-in text-indigo-300 text-center max-w-xl mx-auto">
+        It seems you've taken a wrong turn. The page you're looking for doesn't exist. But don’t worry, we’ve got you covered!
       </p>
 
       {/* Animated Icon */}
-      <div className="relative mt-8 w-64 h-64 flex justify-center items-center">
-        <div className="absolute w-64 h-64 rounded-full bg-gradient-to-r from-red-500 to-yellow-500 opacity-20 animate-pulse"></div>
-        <div className="absolute w-48 h-48 rounded-full bg-gradient-to-r from-gray-700 to-gray-800"></div>
+      <div className="relative mt-8 w-72 h-72 flex justify-center items-center animate-slide-in">
+        <div className="absolute w-72 h-72 rounded-full bg-gradient-to-r from-yellow-400 to-indigo-500 opacity-20 animate-pulse"></div>
+        <div className="absolute w-56 h-56 rounded-full bg-gradient-to-r from-gray-700 to-gray-800"></div>
         <FaExclamationTriangle
-          size={64}
-          className="text-yellow-400 animate-bounce-slow z-10"
+          size={72}
+          className="text-yellow-400 animate-bounce z-10"
         />
       </div>
 
       {/* Back to Home Button */}
       <Link
         to="/"
-        className="mt-10 px-8 py-3 bg-gradient-to-r from-red-500 to-yellow-500 text-black rounded-lg text-lg font-semibold shadow-lg hover:shadow-2xl hover:scale-110 transform transition duration-300 ease-in-out"
+        className="mt-12 px-10 py-4 bg-gradient-to-r from-yellow-500 to-indigo-600 text-black rounded-full text-lg font-semibold shadow-xl hover:shadow-2xl hover:scale-105 transform transition duration-500 ease-out"
       >
         Take Me Home
       </Link>

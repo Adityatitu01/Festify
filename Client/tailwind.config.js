@@ -12,6 +12,16 @@ export default {
   darkMode: ["class"],
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    extend: {
+      colors: {
+        charcoal: '#333333',
+        'dark-gray': '#444444',
+        'bright-yellow': '#FFD700',
+        'teal-blue': '#008080',
+      },
+    },
+  },
+  theme: {
   	extend: {
   		borderRadius: {
   			lg: 'var(--radius)',

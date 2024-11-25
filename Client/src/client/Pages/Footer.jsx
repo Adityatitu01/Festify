@@ -1,69 +1,101 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaInstagram } from "react-icons/fa6";
-import { FaLinkedin } from "react-icons/fa6";
-import { FaGithub } from "react-icons/fa6";
+import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <div>
-      <footer className="space-y-4 w-full py-6 bg-zinc-900 text-white">
-        <h1 className="px-4 md:px-6 text-2xl lg:text-3xl font-extrabold">
-          Festify
-        </h1>
-        <div className="flex justify-between px-4 md:px-6 text-start">
-          <div className="text-start flex max-sm:flex-col-reverse">
-            <p>&copy; {new Date().getFullYear()} Finesty. All rights reserved.</p>
-            <div className="flex max-sm:flex-col max-sm:gap-2 gap-8 px-6 max-sm:px-0 max-sm:pb-4">
-              <Link className="hover:underline" to="/about" target="_top">
-                About
-              </Link>
-              <Link className="hover:underline" to="/careers" target="_top">
-                Careers
-              </Link>
-              <Link className="hover:underline" to="/support" target="_top">
-                Support
-              </Link>
-              <Link className="hover:underline" to="/terms+of+service" target="_top">
-                Terms of Service
-              </Link>
-              <Link className="hover:underline" to="/privacy" target="_top">
-                Privacy
-              </Link>
-              <Link className="hover:underline" to="/contact+us" target="_top">
-                Contact Us
-              </Link>
-            </div>
-          </div>
-          <div className="flex gap-4 max-sm:items-end">
-            <a
-              href="https://www.instagram.com/5_g.one_5/"
-              aria-label="Link for my Instagram ID"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaInstagram className="size-5" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/jag-jeevan-ricky-8099ab246/"
-              aria-label="Link for my linkedin ID"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaLinkedin className="size-5" />
-            </a>
-            <a
-              href="https://github.com/GOne0816"
-              aria-label="Link for my github ID"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaGithub className="size-5" />
-            </a>
-          </div>
+    <footer className="w-full bg-teal-800 text-gray-200 py-6">
+      {/* Footer Content Wrapper */}
+      <div className="container mx-auto px-6 lg:px-20 flex flex-col lg:flex-row justify-between items-center gap-6 lg:gap-0">
+        {/* Logo and Tagline */}
+        <div className="text-center lg:text-left">
+          <h1 className="text-2xl font-extrabold text-yellow-400">Festify</h1>
+          <p className="text-gray-300 text-sm">Celebrate every moment with us!</p>
         </div>
-      </footer>
-    </div>
+
+        {/* Navigation Links */}
+        <div className="flex flex-wrap justify-center gap-4 text-sm">
+          <Link
+            className="text-gray-300 hover:text-yellow-400 transition-colors"
+            to="/about"
+            target="_top"
+          >
+            About
+          </Link>
+          <Link
+            className="text-gray-300 hover:text-yellow-400 transition-colors"
+            to="/careers"
+            target="_top"
+          >
+            Careers
+          </Link>
+          <Link
+            className="text-gray-300 hover:text-yellow-400 transition-colors"
+            to="/support"
+            target="_top"
+          >
+            Support
+          </Link>
+          <Link
+            className="text-gray-300 hover:text-yellow-400 transition-colors"
+            to="/terms+of+service"
+            target="_top"
+          >
+            Terms
+          </Link>
+          <Link
+            className="text-gray-300 hover:text-yellow-400 transition-colors"
+            to="/privacy"
+            target="_top"
+          >
+            Privacy
+          </Link>
+          <Link
+            className="text-gray-300 hover:text-yellow-400 transition-colors"
+            to="/contact+us"
+            target="_top"
+          >
+            Contact
+          </Link>
+        </div>
+
+        {/* Social Media Links */}
+        <div className="flex gap-4">
+          <a
+            href="https://www.instagram.com/5_g.one_5/"
+            aria-label="Instagram"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-300 hover:text-pink-500 transition-colors text-lg"
+          >
+            <FaInstagram />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/jag-jeevan-ricky-8099ab246/"
+            aria-label="LinkedIn"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-300 hover:text-blue-400 transition-colors text-lg"
+          >
+            <FaLinkedin />
+          </a>
+          <a
+            href="https://github.com/GOne0816"
+            aria-label="GitHub"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-300 hover:text-gray-500 transition-colors text-lg"
+          >
+            <FaGithub />
+          </a>
+        </div>
+      </div>
+
+      {/* Footer Bottom */}
+      <div className="mt-4 text-center text-gray-400 text-xs">
+        &copy; {new Date().getFullYear()} Festify. All rights reserved.
+      </div>
+    </footer>
   );
 };
 

@@ -17,6 +17,8 @@ import ContactUs from "./client/Pages/Pages Components/Contact";
 import Error from "./client/Pages/Pages Components/Error";
 import ManagerDashboard from "./client/Pages/ManagerDashboard";
 import EditEvent from "./client/Pages/Pages Components/EditEvent";
+import RegisteredUser from "./client/registeredUser"
+
 
 const App = () => {
   const [showNavAndFooter, setShowNavAndFooter] = useState(true);
@@ -40,6 +42,7 @@ const App = () => {
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/contact+us" element={<ContactUs />} />
         <Route path="/edit-event/:eventId" element={<EditEvent />} />
+        <Route path="/registeredUser" element={<RegisteredUser />} />
         <Route path="/*" element={<Error setShowNavAndFooter={setShowNavAndFooter} />} />
       </Routes>
       {showNavAndFooter && location.pathname !== "/managerDashboard" && <Footer />}

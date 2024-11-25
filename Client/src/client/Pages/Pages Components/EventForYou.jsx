@@ -73,25 +73,34 @@ const EventForYou = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 px-6 py-10 md:px-16 lg:px-28">
-      <h1 className="text-4xl font-extrabold text-gray-800 mb-8 text-center">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-black px-6 py-10 md:px-16 lg:px-28 relative">
+      {/* Animated Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute w-96 h-96 bg-blue-500 rounded-full filter blur-3xl opacity-25 top-0 left-0 animate-pulse"></div>
+        <div className="absolute w-96 h-96 bg-purple-600 rounded-full filter blur-3xl opacity-25 bottom-0 right-0 animate-pulse"></div>
+      </div>
+
+      <h1 className="text-4xl font-extrabold text-amber-400 mb-8 text-center relative z-10">
         Events for You
       </h1>
-      <p className="text-lg text-gray-600 text-center mb-10">
+      <p className="text-lg text-teal-600 text-center mb-10 relative z-10">
         Discover events tailored to your interests. Don’t miss out!
       </p>
+
       {loading ? (
-        <p className="text-center text-gray-500 text-lg">Loading events...</p>
+        <p className="text-center text-gray-500 text-lg relative z-10">
+          Loading events...
+        </p>
       ) : events && events.length === 0 ? (
-        <div className="text-center text-gray-500 text-xl font-medium mt-10">
+        <div className="text-center text-gray-500 text-xl font-medium mt-10 relative z-10">
           No events found.
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
           {eventData.map((event, index) => (
             <div
               key={index}
-              className="border border-gray-200 shadow-lg rounded-xl overflow-hidden bg-white hover:shadow-2xl transition-shadow duration-300"
+              className="border border-gray-200 shadow-lg rounded-xl overflow-hidden bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 hover:shadow-2xl hover:scale-105 transition-transform duration-300"
             >
               <div className="relative w-full h-48">
                 <img
@@ -104,33 +113,33 @@ const EventForYou = () => {
                 />
               </div>
               <div className="p-6">
-                <h2 className="text-xl font-semibold text-gray-800 truncate mb-2">
+                <h2 className="text-xl font-semibold text-white truncate mb-2">
                   {event.eventName}
                 </h2>
-                <div className="flex items-center text-sm text-gray-600 mb-1">
+                <div className="flex items-center text-sm text-gray-400 mb-1">
                   <FaMapMarkerAlt className="text-red-500 mr-2" />
                   <span>
-                    <span className="font-medium text-gray-700">Location:</span>{" "}
+                    <span className="font-medium text-white">Location:</span>{" "}
                     {event.eventLocation}
                   </span>
                 </div>
-                <div className="flex items-center text-sm text-gray-600 mb-1">
+                <div className="flex items-center text-sm text-gray-400 mb-1">
                   <FaBuilding className="text-blue-500 mr-2" />
                   <span>
-                    <span className="font-medium text-gray-700">Place:</span>{" "}
+                    <span className="font-medium text-white">Place:</span>{" "}
                     {event.eventPlace || "N/A"}
                   </span>
                 </div>
-                <div className="flex items-center text-sm text-gray-600 mb-3">
+                <div className="flex items-center text-sm text-gray-400 mb-3">
                   <FaCalendarAlt className="text-green-500 mr-2" />
                   <span>
-                    <span className="font-medium text-gray-700">Date:</span>{" "}
+                    <span className="font-medium text-white">Date:</span>{" "}
                     {new Date(event.eventDate).toLocaleDateString()}
                   </span>
                 </div>
                 <Separator className="my-4" />
                 <Button
-                  className="w-full py-2 text-base font-medium"
+                  className="w-full py-2 text-base font-medium bg-amber-400 hover:bg-amber-500"
                   onClick={() => setSelectedEvent(event)}
                 >
                   View More
@@ -141,58 +150,60 @@ const EventForYou = () => {
         </div>
       )}
 
-      {/* Modal Section for Event Details */}
-      {selectedEvent && (
-        <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50">
-          <div className="relative bg-white rounded-lg shadow-2xl max-w-lg w-full overflow-hidden">
-            <button
-              className="absolute top-4 right-4 text-gray-800 bg-gray-200 hover:bg-gray-300 rounded-full p-2 shadow transition"
-              onClick={closeEventDetails}
-              aria-label="Close"
-            >
-              <FiX className="w-6 h-6" />
-            </button>
-            <img
-              src={selectedEvent.image}
-              alt={selectedEvent.eventName}
-              className="w-full h-64 object-cover"
-            />
-            <div className="p-6">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                {selectedEvent.eventName}
-              </h2>
-              <div className="flex items-center text-sm text-gray-600 mb-2">
-                <FaCalendarAlt className="text-green-500 mr-2" />
-                <span>
-                  <span className="font-medium text-gray-700">Date:</span>{" "}
-                  {new Date(selectedEvent.eventDate).toLocaleDateString()}
-                </span>
-              </div>
-              <div className="flex items-center text-sm text-gray-600 mb-2">
-                <FaMapMarkerAlt className="text-red-500 mr-2" />
-                <span>
-                  <span className="font-medium text-gray-700">Location:</span>{" "}
-                  {selectedEvent.eventLocation}
-                </span>
-              </div>
-              <div className="flex items-center text-sm text-gray-600 mb-2">
-                <FaBuilding className="text-blue-500 mr-2" />
-                <span>
-                  <span className="font-medium text-gray-700">Place:</span>{" "}
-                  {selectedEvent.eventPlace || "N/A"}
-                </span>
-              </div>
-              <div className="flex items-center text-sm text-gray-600">
-                <FaInfoCircle className="text-purple-500 mr-2" />
-                <span>
-                  <span className="font-medium text-gray-700">Description:</span>{" "}
-                  {selectedEvent.eventDescription || "No description provided."}
-                </span>
-              </div>
-            </div>
-          </div>
+{/* Event Detail Modal */}
+{selectedEvent && (
+  <div className="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm flex justify-center items-center z-50 transition-all duration-300 ease-in-out">
+    <div className="relative bg-gray-900 rounded-lg shadow-2xl w-11/12 max-w-3xl p-6 transition-transform transform scale-100 hover:scale-105">
+      
+      {/* Close Button */}
+      <button
+        className="absolute -top-4 -right-4 text-white bg-red-500 p-3 rounded-full shadow-md 
+                  hover:bg-red-600 hover:scale-110 transition-all duration-300 focus:outline-none"
+        onClick={() => setSelectedEvent(null)}
+        aria-label="Close Modal"
+      >
+        <FiX className="text-2xl" />
+      </button>
+
+      {/* Event Image */}
+      <div className="relative w-full h-72 mb-6">
+        <img
+          src={selectedEvent.image}
+          alt={selectedEvent.eventName}
+          className="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 hover:scale-105"
+          onError={(e) => {
+            e.target.src = DEFAULT_EVENT_IMAGE;
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent rounded-lg"></div>
+      </div>
+
+      {/* Event Content */}
+      <div className="text-white">
+        <h2 className="text-3xl font-extrabold text-yellow-400 mb-4">
+          {selectedEvent.eventName}
+        </h2>
+        <div className="flex items-center text-lg text-gray-300 mb-4">
+          <FaCalendarAlt className="text-yellow-400 mr-2" />
+          <span>{new Date(selectedEvent.eventDate).toLocaleDateString()}</span>
         </div>
-      )}
+        <div className="flex items-center text-lg text-gray-300 mb-4">
+          <FaMapMarkerAlt className="text-red-400 mr-2" />
+          <span>{selectedEvent.eventLocation}</span>
+        </div>
+        <div className="flex items-center text-lg text-gray-300 mb-4">
+          <FaBuilding className="text-green-400 mr-2" />
+          <span>{selectedEvent.eventPlace || "N/A"}</span>
+        </div>
+        <div className="flex items-start text-lg text-gray-300">
+          <FaInfoCircle className="text-purple-400 mr-2 mt-1" />
+          <span>{selectedEvent.eventDescription || "No description provided."}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+)}
+
     </div>
   );
 };

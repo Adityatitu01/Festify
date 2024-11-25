@@ -1,21 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../../store/auth-context";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  CalendarDays,
-  Mail,
-  User,
-  MapPin,
-  Edit,
-  Trash2,
-} from "lucide-react";
+import { CalendarDays, Mail, User, MapPin, Edit, Trash2 } from "lucide-react";
 import { format } from "date-fns";
 import { toast, ToastContainer } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -24,6 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 const ManagerDashboard = () => {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [activeTab, setActiveTab] = useState("profile"); // Default to Profile
   const { token } = useAuth();
   const navigate = useNavigate();
 
@@ -38,14 +24,10 @@ const ManagerDashboard = () => {
         const data = await response.json();
         setUserData(data.msg);
         setLoading(false);
-        toast.success("Dashboard loaded successfully!", {
-          toastStyle: { backgroundColor: "green", color: "white" },
-        });
+        toast.success("Dashboard loaded successfully!");
       } catch (error) {
         console.error("Error fetching user data:", error);
-        toast.error("Failed to load dashboard data", {
-          toastStyle: { backgroundColor: "green", color: "white" },
-        });
+        toast.error("Failed to load dashboard data");
         setLoading(false);
       }
     };
@@ -53,18 +35,9 @@ const ManagerDashboard = () => {
     fetchUserData();
   }, [token]);
 
-  const handleEditEvent = async (eventId) => {
-    try {
-      navigate(`/edit-event/${eventId}`);
-      toast.info("Navigating to edit event...", {
-        toastStyle: { backgroundColor: "green", color: "white" },
-      });
-    } catch (error) {
-      console.error("Error editing event:", error);
-      toast.error("Failed to navigate to edit event", {
-        toastStyle: { backgroundColor: "green", color: "white" },
-      });
-    }
+  const handleEditEvent = (eventId) => {
+    navigate(`/edit-event/${eventId}`);
+    toast.info("Navigating to edit event...");
   };
 
   const handleDeleteEvent = async (eventId) => {
@@ -83,142 +56,158 @@ const ManagerDashboard = () => {
             (event) => event._id !== eventId
           ),
         }));
-        toast.success("Event deleted successfully!", {
-          toastStyle: { backgroundColor: "green", color: "white" },
-        });
+        toast.success("Event deleted successfully!");
       } else {
         throw new Error("Failed to delete event");
       }
     } catch (error) {
       console.error("Error deleting event:", error);
-      toast.error("Failed to delete event", {
-        toastStyle: { backgroundColor: "green", color: "white" },
-      });
+      toast.error("Failed to delete event");
     }
+  };
+
+  const handleUserRedirect = () => {
+    navigate("/registeredUser");
+    toast.info("Navigating to registered users...");
   };
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center min-h-screen bg-gray-100">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-indigo-500"></div>
+      <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-indigo-500 to-purple-600">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-white"></div>
       </div>
     );
   }
 
   return (
-    <div className="container mx-auto px-6 py-8 bg-gray-50 min-h-screen">
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={true}
-        closeOnClick
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-      />
-      <Tabs defaultValue="profile" className="w-full">
-        <TabsList className="grid w-full grid-cols-2">
-          <TabsTrigger
-            value="profile"
-            className="text-lg font-semibold text-gray-600 hover:text-indigo-600"
-          >
-            Profile
-          </TabsTrigger>
-          <TabsTrigger
-            value="events"
-            className="text-lg font-semibold text-gray-600 hover:text-indigo-600"
-          >
-            My Events
-          </TabsTrigger>
-        </TabsList>
+    <div className="min-h-screen bg-gradient-to-br from-gray-200 via-gray-100 to-white">
+      <div className="flex flex-col lg:flex-row">
+        {/* Sidebar */}
+        <aside className="lg:w-1/4 bg-white shadow-lg lg:min-h-screen p-6 flex flex-col">
+          <h1 className="text-3xl font-extrabold bg-gradient-to-r from-indigo-500 to-purple-500 text-transparent bg-clip-text mb-8">
+            Manager Dashboard
+          </h1>
+          <p className="text-sm text-gray-600 mb-6">
+            Welcome, <span className="font-medium">{userData?.name}</span>
+          </p>
+          <nav className="space-y-4">
+            <button
+              onClick={() => setActiveTab("profile")}
+              className={`w-full py-3 text-left text-lg font-medium rounded-md transition ${
+                activeTab === "profile"
+                  ? "bg-indigo-500 text-white"
+                  : "text-gray-700 hover:bg-indigo-100"
+              }`}
+            >
+              Profile
+            </button>
+            <button
+              onClick={() => setActiveTab("events")}
+              className={`w-full py-3 text-left text-lg font-medium rounded-md transition ${
+                activeTab === "events"
+                  ? "bg-indigo-500 text-white"
+                  : "text-gray-700 hover:bg-indigo-100"
+              }`}
+            >
+              My Events
+            </button>
+          </nav>
+        </aside>
 
-        {/* Profile Tab */}
-        <TabsContent value="profile">
-          <Card className="shadow-lg border rounded-lg bg-white">
-            <CardHeader className="bg-indigo-50 p-4">
-              <CardTitle className="text-xl text-indigo-600">
+        {/* Main Content */}
+        <main className="lg:w-3/4 p-8">
+          <ToastContainer
+            position="top-right"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop
+            closeOnClick
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="colored"
+          />
+
+          {activeTab === "profile" && (
+            <div className="bg-white shadow-xl rounded-lg p-6">
+              <h2 className="text-2xl font-bold text-indigo-600 mb-4">
                 Profile Information
-              </CardTitle>
-              <CardDescription className="text-gray-500">
-                View and manage your profile details
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-6 p-6">
-              <div className="flex items-center space-x-4 text-gray-700">
-                <User className="h-6 w-6 text-indigo-500" />
-                <span className="font-medium">{userData?.name}</span>
+              </h2>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-4">
+                  <User className="h-6 w-6 text-indigo-500" />
+                  <span className="text-gray-700 font-medium">
+                    {userData?.name}
+                  </span>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <Mail className="h-6 w-6 text-indigo-500" />
+                  <span className="text-gray-700">{userData?.email}</span>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <CalendarDays className="h-6 w-6 text-indigo-500" />
+                  <span className="text-gray-700">
+                    Events Created: {userData?.eventsCreated?.length || 0}
+                  </span>
+                </div>
               </div>
-              <div className="flex items-center space-x-4 text-gray-700">
-                <Mail className="h-6 w-6 text-indigo-500" />
-                <span>{userData?.email}</span>
-              </div>
-              <div className="flex items-center space-x-4 text-gray-700">
-                <CalendarDays className="h-6 w-6 text-indigo-500" />
-                <span>Events Created: {userData?.eventsCreated?.length || 0}</span>
-              </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
+            </div>
+          )}
 
-        {/* My Events Tab */}
-        <TabsContent value="events">
-          <Card className="shadow-lg border rounded-lg bg-white">
-            <CardHeader className="bg-indigo-50 p-4">
-              <CardTitle className="text-xl text-indigo-600">My Events</CardTitle>
-              <CardDescription className="text-gray-500">
-                Manage your created events
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="p-6">
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {activeTab === "events" && (
+            <div className="bg-white shadow-xl rounded-lg p-6">
+              <h2 className="text-2xl font-bold text-indigo-600 mb-4">
+                My Events
+              </h2>
+              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {userData?.eventsCreated?.map((event) => (
-                  <Card
+                  <div
                     key={event._id}
-                    className="shadow-sm border rounded-lg overflow-hidden"
+                    className="bg-gray-50 shadow-md rounded-lg p-4 hover:shadow-lg transition"
                   >
-                    <CardHeader className="p-4 bg-gray-100">
-                      <CardTitle className="text-lg text-indigo-700">
-                        {event.eventName}
-                      </CardTitle>
-                      <CardDescription>
-                        <div className="flex items-center space-x-2 text-gray-600 mt-1">
-                          <CalendarDays className="h-4 w-4 text-indigo-500" />
-                          <span>{format(new Date(event.eventDate), "PPP")}</span>
-                        </div>
-                        <div className="flex items-center space-x-2 text-gray-600 mt-1">
-                          <MapPin className="h-4 w-4 text-indigo-500" />
-                          <span>{event.eventPlace}</span>
-                        </div>
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent className="p-4">
-                      <p className="text-sm text-gray-600 line-clamp-2">
-                        {event.eventDescription}
-                      </p>
-                      <div className="flex justify-end space-x-2 mt-4">
-                        <button
-                          onClick={() => handleEditEvent(event._id)}
-                          className="p-2 text-indigo-600 hover:bg-indigo-50 rounded-full"
-                        >
-                          <Edit className="h-4 w-4" />
-                        </button>
-                        <button
-                          onClick={() => handleDeleteEvent(event._id)}
-                          className="p-2 text-red-600 hover:bg-red-50 rounded-full"
-                        >
-                          <Trash2 className="h-4 w-4" />
-                        </button>
+                    <h3 className="text-lg font-semibold text-indigo-600">
+                      {event.eventName}
+                    </h3>
+                    <div className="mt-2 text-sm text-gray-500">
+                      <div className="flex items-center space-x-2">
+                        <CalendarDays className="h-4 w-4 text-indigo-500" />
+                        <span>{format(new Date(event.eventDate), "PPP")}</span>
                       </div>
-                    </CardContent>
-                  </Card>
+                      <div className="flex items-center space-x-2 mt-1">
+                        <MapPin className="h-4 w-4 text-indigo-500" />
+                        <span>{event.eventPlace}</span>
+                      </div>
+                    </div>
+                    <p className="mt-4 text-sm text-gray-700 line-clamp-3">
+                      {event.eventDescription}
+                    </p>
+                    <div className="flex justify-end space-x-2 mt-4">
+                      <button
+                        onClick={handleUserRedirect}
+                        className="p-2 text-indigo-600 bg-indigo-50 hover:bg-indigo-100 rounded-full transition"
+                      >
+                        <User className="h-5 w-5" />
+                      </button>
+                      <button
+                        onClick={() => handleEditEvent(event._id)}
+                        className="p-2 text-indigo-600 bg-indigo-50 hover:bg-indigo-100 rounded-full transition"
+                      >
+                        <Edit className="h-5 w-5" />
+                      </button>
+                      <button
+                        onClick={() => handleDeleteEvent(event._id)}
+                        className="p-2 text-red-600 bg-red-50 hover:bg-red-100 rounded-full transition"
+                      >
+                        <Trash2 className="h-5 w-5" />
+                      </button>
+                    </div>
+                  </div>
                 ))}
               </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
-      </Tabs>
+            </div>
+          )}
+        </main>
+      </div>
     </div>
   );
 };
