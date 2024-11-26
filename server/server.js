@@ -10,7 +10,7 @@ const cors = require('cors')
 //<--------------------------------------CORS DEFINITION------------------------------------------------->
 
 var corsOptions = {
-    origin: 'http://localhost:5173',
+    origin: 'https://astounding-piroshki-15baea.netlify.app',
     methods:"GET, POST,PUT,DELETE, PATCH, HEAD",
     optionsSuccessStatus: 200,
     Credentials:true,
