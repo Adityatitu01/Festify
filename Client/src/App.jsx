@@ -6,7 +6,7 @@ import Footer from "./client/Pages/Footer";
 import EventForYou from "./client/Pages/Pages Components/EventForYou";
 import Signup from "./client/Pages/Pages Components/signup";
 import Login from "./client/Pages/Pages Components/login";
-import Signout from './client/Pages/SignOut';
+import Signout from './client/Pages/Signout';
 import CreateEvent from "./client/Pages/Pages Components/CreateEvent";
 import About from "./client/Pages/Pages Components/About";
 import Careers from "./client/Pages/Pages Components/Careers";

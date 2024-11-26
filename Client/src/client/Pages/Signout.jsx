@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../../store/auth-context";
 
-const SignOut = () => {
+const Signout = () => {
   const { SignoutUSer } = useAuth();
 
   useEffect(() => {
@@ -12,4 +12,4 @@ const SignOut = () => {
   return <Navigate to="/login" />;
 };
 
-export default SignOut;
+export default Signout;
