@@ -60,7 +60,7 @@ const CreateEvent = () => {
       }
 
       toast.success("Event created successfully!");
-      setTimeout(() => navigate("/"), 2000);
+      setTimeout(() => navigate("/eventForYou"), 2000);
     } catch (error) {
       toast.error("Failed to create event.");
     }
