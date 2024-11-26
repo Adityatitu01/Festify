@@ -18,7 +18,6 @@ const Signup = () => {
 
   const { storeTokenInLS } = useAuth();
 
-  // Handling form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -34,7 +33,6 @@ const Signup = () => {
       if (response.ok) {
         const res_data = await response.json();
 
-        // Store token and redirect to home
         storeTokenInLS(res_data.token);
         toast.success(
           `🎉 Welcome, ${user.name}! Your account has been created successfully.`,
@@ -54,7 +52,7 @@ const Signup = () => {
             email: "",
             password: "",
           });
-          navigate("/"); // Redirect to home screen
+          navigate("/");
         }, 2000);
       } else {
         const errorData = await response.json();
@@ -73,25 +71,28 @@ const Signup = () => {
   };
 
   return (
-    <div className="w-full h-screen flex justify-center items-center bg-gray-50">
+    <div className="w-full h-screen flex justify-center items-center bg-gray-900">
       <ToastContainer />
-      <div className="max-w-md w-11/12 sm:w-9/12 md:w-8/12 lg:w-6/12 xl:w-4/12 bg-gray-100 rounded-xl p-8 shadow-lg">
+      <div className="max-w-md w-11/12 sm:w-9/12 md:w-8/12 lg:w-6/12 xl:w-4/12 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-800 rounded-2xl p-8 shadow-2xl border border-gray-600">
         <form onSubmit={handleSubmit}>
-          <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-center">
-            Create an account
+          <h1 className="text-3xl font-bold text-center text-white">
+            Create an Account
           </h1>
-          <p className="text-gray-500 text-center mt-2">
-            Enter your details below to get started.
+          <p className="text-gray-400 text-center mt-2">
+            Sign up to unlock amazing features!
           </p>
 
-          <div className="flex flex-col mt-6 gap-4">
+          <div className="flex flex-col mt-6 gap-6">
             {/* Name Field */}
             <div className="flex flex-col">
-              <label className="font-bold mb-1" htmlFor="name">
+              <label
+                className="font-semibold text-gray-300 mb-1"
+                htmlFor="name"
+              >
                 Name
               </label>
               <input
-                className="p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 outline-none"
+                className="p-3 rounded-lg bg-gray-700 text-gray-200 border border-gray-500 focus:ring-2 focus:ring-blue-500 outline-none"
                 type="text"
                 name="name"
                 id="name"
@@ -103,11 +104,14 @@ const Signup = () => {
 
             {/* Email Field */}
             <div className="flex flex-col">
-              <label className="font-bold mb-1" htmlFor="email">
+              <label
+                className="font-semibold text-gray-300 mb-1"
+                htmlFor="email"
+              >
                 Email
               </label>
               <input
-                className="p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 outline-none"
+                className="p-3 rounded-lg bg-gray-700 text-gray-200 border border-gray-500 focus:ring-2 focus:ring-blue-500 outline-none"
                 type="email"
                 name="email"
                 id="email"
@@ -119,12 +123,15 @@ const Signup = () => {
 
             {/* Password Field */}
             <div className="flex flex-col">
-              <label className="font-bold mb-1" htmlFor="password">
+              <label
+                className="font-semibold text-gray-300 mb-1"
+                htmlFor="password"
+              >
                 Password
               </label>
               <div className="relative">
                 <input
-                  className="p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 outline-none w-full"
+                  className="p-3 rounded-lg bg-gray-700 text-gray-200 border border-gray-500 focus:ring-2 focus:ring-blue-500 outline-none w-full"
                   type={isVisible ? "text" : "password"}
                   name="password"
                   id="password"
@@ -136,7 +143,7 @@ const Signup = () => {
                 />
                 <button
                   type="button"
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
                   onClick={toggleVisibility}
                   aria-label={isVisible ? "Hide password" : "Show password"}
                 >
@@ -152,7 +159,7 @@ const Signup = () => {
             {/* Register Button */}
             <button
               type="submit"
-              className="bg-gray-800 text-white p-3 rounded-lg w-full font-semibold hover:bg-gray-900 transition duration-300"
+              className="bg-blue-600 text-white p-3 rounded-lg w-full font-semibold hover:bg-blue-700 transition duration-300"
             >
               Register
             </button>
@@ -161,17 +168,17 @@ const Signup = () => {
 
         {/* OR Divider */}
         <div className="flex items-center justify-center my-6">
-          <div className="h-px w-full bg-gray-300"></div>
+          <div className="h-px w-full bg-gray-600"></div>
           <span className="px-3 text-gray-400">OR</span>
-          <div className="h-px w-full bg-gray-300"></div>
+          <div className="h-px w-full bg-gray-600"></div>
         </div>
 
         {/* Log In Link */}
-        <p className="text-center text-sm mt-6">
-          Have an account?{" "}
+        <p className="text-center text-sm text-gray-300">
+          Already have an account?{" "}
           <Link
             to="/login"
-            className="text-blue-600 underline hover:text-blue-800"
+            className="text-blue-400 hover:text-blue-500 underline"
           >
             Log In here
           </Link>

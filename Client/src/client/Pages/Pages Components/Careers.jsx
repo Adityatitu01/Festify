@@ -5,15 +5,17 @@ import FocusCards from "../../components/ui/FocusCards";
 
 const Careers = () => {
   return (
-    <div className="bg-gray-100 text-gray-800 min-h-screen">
+    <div className="bg-black text-gray-200 min-h-screen">
       {/* Hero Section */}
-      <div className=" py-20 px-10 md:px-20">
+      <div className="py-20 px-10 md:px-20">
         <div className="text-center">
-          <h1 className="text-5xl font-extrabold text-yellow-400 mb-4">
-            Join Us on a Happening Journey
+          <h1 className="text-5xl font-extrabold text-yellow-400 mb-6">
+            Your Next Big Opportunity Awaits
           </h1>
-          <p className="text-lg text-teal-600">
-            Challenge your limits. Meet awesome people. Find your *ikigai*.
+          <p className="text-lg text-teal-400 max-w-2xl mx-auto">
+            At Festify, we believe in creating events that make life more
+            happening. Join our team and be part of a culture that thrives on
+            creativity, collaboration, and growth.
           </p>
         </div>
       </div>
@@ -21,62 +23,95 @@ const Careers = () => {
       {/* Mission Section */}
       <div className="py-20 px-10 md:px-20 flex flex-col lg:flex-row items-center gap-12">
         <div className="lg:flex-1">
-          <h2 className="text-4xl font-bold mb-4 text-gray-800">
-            We're on a Mission of
+          <h2 className="text-4xl font-bold mb-4 text-yellow-400">
+            Our Mission
           </h2>
-          <p className="text-xl font-medium text-gray-600 mb-2">
-            Making the world #Happening
+          <p className="text-xl text-gray-300 mb-4">
+            Empowering people through events and creating lasting memories.
           </p>
-          <p className="text-gray-700 mb-6">
-            In 2024, Festify began when we realized the immense positive impact
-            events can create. Ever since, our mission has been simple: ensuring
-            people never miss out on the events they love.
+          <p className="text-gray-400 mb-6">
+            Since 2024, we've been on a journey to make the world a more
+            #Happening place. From concerts to conferences, we ensure everyone
+            experiences the moments they cherish the most.
           </p>
-          <blockquote className="text-lg italic font-medium text-teal-600">
-            "We grow when people working with us grow."
+          <blockquote className="text-lg italic font-medium text-teal-400">
+            "We succeed when our team succeeds."
           </blockquote>
         </div>
         <div className="lg:flex-1 flex justify-center">
-          <Skeleton className="w-[30rem] h-[20rem] rounded-lg shadow-lg bg-gray-300" />
+          <Skeleton className="w-[30rem] h-[20rem] rounded-lg shadow-lg bg-gray-800" />
         </div>
       </div>
 
       {/* Value Section */}
-      <div className="bg-gray-50 py-16 px-10 md:px-20 text-center">
-        <h2 className="text-4xl font-bold text-gray-800 mb-6">
-          What Drives Us
+      <div className="bg-gray-900 py-16 px-10 md:px-20 text-center">
+        <h2 className="text-4xl font-bold text-yellow-400 mb-6">
+          What We Stand For
         </h2>
-        <p className="text-gray-600 text-lg mb-8">
-          At Festify, we are passionate, innovative, and always on the move.
-          Here are some things we value:
+        <p className="text-gray-400 text-lg mb-8 max-w-3xl mx-auto">
+          At Festify, our core values define who we are. Innovation, teamwork,
+          and an unyielding focus on our people drive us forward.
         </p>
         <TimeLineComp />
       </div>
 
       {/* Team Culture Section */}
-      <div className="py-20 px-10 md:px-20">
+      <div className="py-20 px-10 md:px-20 bg-black">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">
-            We Can't Stay Quiet for Long
+          <h2 className="text-4xl font-bold text-yellow-400 mb-4">
+            Our Vibrant Culture
           </h2>
-          <p className="text-lg text-gray-600 mb-2">
-            We need fuel to work! And our fuel is food, trips, and parties.
+          <p className="text-lg text-gray-400 mb-8">
+            Our team isn't just about work—we know how to have fun! From team
+            outings to office parties, we foster an environment where everyone
+            feels valued and energized.
           </p>
         </div>
         <FocusCards />
       </div>
 
+      {/* Career Perks Section */}
+      <div className="bg-gray-900 py-16 px-10 md:px-20">
+        <div className="text-center">
+          <h2 className="text-4xl font-bold text-teal-400 mb-6">
+            Why Join Festify?
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-black border border-gray-800 rounded-lg p-6 text-left">
+              <h3 className="text-2xl text-yellow-400 mb-4">Learning Culture</h3>
+              <p className="text-gray-400">
+                We invest in your growth with resources, mentorship, and
+                continuous learning opportunities.
+              </p>
+            </div>
+            <div className="bg-black border border-gray-800 rounded-lg p-6 text-left">
+              <h3 className="text-2xl text-yellow-400 mb-4">Work-Life Balance</h3>
+              <p className="text-gray-400">
+                Enjoy flexible working hours and policies that prioritize your
+                well-being.
+              </p>
+            </div>
+            <div className="bg-black border border-gray-800 rounded-lg p-6 text-left">
+              <h3 className="text-2xl text-yellow-400 mb-4">Diverse Team</h3>
+              <p className="text-gray-400">
+                Work with people from different backgrounds who bring unique
+                perspectives to the table.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Call to Action Section */}
-      <div className="b py-20 px-10 md:px-20 text-center text-teal-600">
-        <h2 className="text-4xl font-bold mb-6">
-          Looking for a Happening Career?
+      <div className="py-20 px-10 bg-gray-900 md:px-20 text-center text-gray-200">
+        <h2 className="text-4xl font-bold text-yellow-400 mb-6">
+          Ready to Make Your Career Happen?
         </h2>
-        <p className="text-lg font-medium mb-8">
-          We are also looking for growth-oriented individuals! If you're the
-          type to deliver “x+y” when asked for “x,” you might just be the person
-          we're looking for.
+        <p className="text-lg font-medium text-teal-400 mb-8">
+          We're always looking for passionate, innovative individuals. Explore
+          our openings and take the first step toward an exciting career.
         </p>
-        <button className="bg-amber-400 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-amber-500 transition duration-300">
+        <button className="bg-yellow-400 text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition duration-300">
           Explore Open Positions
         </button>
       </div>

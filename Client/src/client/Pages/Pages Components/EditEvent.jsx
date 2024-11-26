@@ -80,25 +80,25 @@ const EditEvent = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center min-h-screen bg-gray-50">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500"></div>
+      <div className="flex justify-center items-center min-h-screen bg-[#1e1e1e]">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-teal-500"></div>
       </div>
     );
   }
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-50 px-4">
-      <div className="w-full max-w-2xl bg-white rounded-lg shadow-lg p-8 transition-all transform hover:shadow-xl">
+    <div className="flex justify-center items-center  min-h-screen bg-[#1e1e1e] px-4">
+      <div className="w-full max-w-2xl bg-[#242424] rounded-lg lg:my-20 shadow-2xl p-8 transition-all transform hover:shadow-teal-500/50">
         <div className="mb-8">
-          <h1 className="text-2xl font-bold text-gray-800">Edit Event</h1>
-          <p className="text-gray-500">Make changes to your event details below.</p>
+          <h1 className="text-3xl font-bold text-teal-400">Edit Event</h1>
+          <p className="text-gray-400">Update your event details below:</p>
         </div>
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Event Name */}
           <div>
             <label
               htmlFor="eventName"
-              className="block text-sm font-medium text-gray-600"
+              className="block text-sm font-medium text-teal-300"
             >
               Event Name
             </label>
@@ -108,7 +108,7 @@ const EditEvent = () => {
               value={formData.eventName}
               onChange={handleChange}
               required
-              className="mt-1 block w-full px-4 py-2 border rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 transition"
+              className="mt-1 block w-full px-4 py-2 border border-teal-500 bg-[#303030] rounded-lg shadow-md focus:ring-teal-500 focus:border-teal-500 text-gray-300 transition-all"
             />
           </div>
 
@@ -116,7 +116,7 @@ const EditEvent = () => {
           <div>
             <label
               htmlFor="eventDate"
-              className="block text-sm font-medium text-gray-600"
+              className="block text-sm font-medium text-teal-300"
             >
               Event Date
             </label>
@@ -127,7 +127,7 @@ const EditEvent = () => {
               value={formData.eventDate}
               onChange={handleChange}
               required
-              className="mt-1 block w-full px-4 py-2 border rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 transition"
+              className="mt-1 block w-full px-4 py-2 border border-teal-500 bg-[#303030] rounded-lg shadow-md focus:ring-teal-500 focus:border-teal-500 text-gray-300 transition-all"
             />
           </div>
 
@@ -135,7 +135,7 @@ const EditEvent = () => {
           <div>
             <label
               htmlFor="eventPlace"
-              className="block text-sm font-medium text-gray-600"
+              className="block text-sm font-medium text-teal-300"
             >
               Event Place
             </label>
@@ -145,7 +145,7 @@ const EditEvent = () => {
               value={formData.eventPlace}
               onChange={handleChange}
               required
-              className="mt-1 block w-full px-4 py-2 border rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 transition"
+              className="mt-1 block w-full px-4 py-2 border border-teal-500 bg-[#303030] rounded-lg shadow-md focus:ring-teal-500 focus:border-teal-500 text-gray-300 transition-all"
             />
           </div>
 
@@ -153,7 +153,7 @@ const EditEvent = () => {
           <div>
             <label
               htmlFor="eventLocation"
-              className="block text-sm font-medium text-gray-600"
+              className="block text-sm font-medium text-teal-300"
             >
               Event Location
             </label>
@@ -163,7 +163,7 @@ const EditEvent = () => {
               value={formData.eventLocation}
               onChange={handleChange}
               required
-              className="mt-1 block w-full px-4 py-2 border rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 transition"
+              className="mt-1 block w-full px-4 py-2 border border-teal-500 bg-[#303030] rounded-lg shadow-md focus:ring-teal-500 focus:border-teal-500 text-gray-300 transition-all"
             />
           </div>
 
@@ -171,7 +171,7 @@ const EditEvent = () => {
           <div>
             <label
               htmlFor="eventDescription"
-              className="block text-sm font-medium text-gray-600"
+              className="block text-sm font-medium text-teal-300"
             >
               Event Description
             </label>
@@ -181,7 +181,7 @@ const EditEvent = () => {
               value={formData.eventDescription}
               onChange={handleChange}
               required
-              className="mt-1 block w-full px-4 py-2 border rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 transition min-h-[120px]"
+              className="mt-1 block w-full px-4 py-2 border border-teal-500 bg-[#303030] rounded-lg shadow-md focus:ring-teal-500 focus:border-teal-500 text-gray-300 transition-all min-h-[120px]"
             />
           </div>
 
@@ -190,13 +190,13 @@ const EditEvent = () => {
             <button
               type="button"
               onClick={() => navigate("/managerDashboard")}
-              className="px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition"
+              className="px-4 py-2 bg-gray-600 text-gray-300 rounded-md hover:bg-gray-700 transition-all"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+              className="px-4 py-2 bg-teal-600 text-white rounded-md hover:bg-teal-700 shadow-lg hover:shadow-teal-500/50 transition-all"
             >
               Update Event
             </button>

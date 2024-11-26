@@ -2,108 +2,134 @@ import React from "react";
 
 const Privacy = () => {
   return (
-    <div className="w-full">
-      <div className="max-w-6xl mx-auto px-4 py-10">
-        <h1 className="text-4xl font-extrabold text-gray-800 text-center mb-8">
+    <div className="w-full bg-black text-gray-200">
+      <div className="max-w-6xl mx-auto px-6 py-16">
+        <h1 className="text-5xl font-extrabold text-yellow-400 text-center mb-10">
           Privacy Policy
         </h1>
-        <p className="text-lg text-gray-700 text-center mb-12 max-w-3xl mx-auto">
-          This Privacy Policy explains how Festify collects, uses, and protects your information when you use our platform for event creation and management.
+        <p className="text-lg text-teal-400 text-center mb-16 max-w-3xl mx-auto">
+          This Privacy Policy outlines how Festify collects, uses, and protects
+          your information when you use our platform for event creation and
+          management.
         </p>
 
-        <div className="space-y-10">
+        <div className="space-y-16">
           <section>
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+            <h2 className="text-3xl font-semibold text-yellow-400 mb-6">
               1. Information We Collect
             </h2>
-            <p className="text-gray-700 mb-6">
-              Festify collects the following types of information to provide a seamless experience:
+            <p className="text-gray-300 mb-6">
+              Festify collects information to provide a seamless user
+              experience. The types of data we gather include:
             </p>
-            <ul className="list-disc pl-6 text-gray-700 space-y-2">
-              <li>Personal details such as your name, email address, and contact number.</li>
-              <li>Details of the events you create or manage, including event names, descriptions, and schedules.</li>
-              <li>Technical data like IP address, browser type, and device information to enhance platform functionality.</li>
+            <ul className="list-disc pl-6 space-y-2 text-teal-400">
+              <li>
+                <strong>Personal Information:</strong> Name, email address,
+                contact number, and similar details.
+              </li>
+              <li>
+                <strong>Event Details:</strong> Names, descriptions, schedules,
+                and other event-related data.
+              </li>
+              <li>
+                <strong>Technical Data:</strong> IP address, browser type, and
+                device information to improve functionality.
+              </li>
             </ul>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+            <h2 className="text-3xl font-semibold text-yellow-400 mb-6">
               2. How We Use Your Information
             </h2>
-            <p className="text-gray-700 mb-6">
-              Your information is used to:
+            <p className="text-gray-300 mb-6">
+              We use your information to deliver and improve our services:
             </p>
-            <ul className="list-disc pl-6 text-gray-700 space-y-2">
-              <li>Enable event creation and management features.</li>
-              <li>Provide support and resolve technical issues.</li>
-              <li>Improve our platform through data-driven insights.</li>
-              <li>Send updates about features, security, or service changes.</li>
+            <ul className="list-disc pl-6 space-y-2 text-teal-400">
+              <li>To enable event creation, management, and participation.</li>
+              <li>To provide support and resolve technical issues.</li>
+              <li>To analyze and improve platform functionality.</li>
+              <li>To send updates, notifications, and service-related alerts.</li>
             </ul>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+            <h2 className="text-3xl font-semibold text-yellow-400 mb-6">
               3. Protecting Your Data
             </h2>
-            <p className="text-gray-700 mb-6">
-              We take your data security seriously and implement best practices, including:
+            <p className="text-gray-300 mb-6">
+              Festify employs industry-standard security measures to safeguard
+              your data:
             </p>
-            <ul className="list-disc pl-6 text-gray-700 space-y-2">
-              <li>Encryption of sensitive information during transmission.</li>
-              <li>Secure data storage and access controls.</li>
-              <li>Regular audits to identify and mitigate vulnerabilities.</li>
+            <ul className="list-disc pl-6 space-y-2 text-teal-400">
+              <li>Encryption of sensitive data during transmission.</li>
+              <li>Regular security audits and vulnerability assessments.</li>
+              <li>Access control measures to restrict unauthorized access.</li>
             </ul>
-            <p className="text-gray-700">
-              While we strive to protect your data, no system is entirely foolproof. We encourage you to safeguard your account credentials.
+            <p className="text-gray-300 mt-4">
+              While we strive to ensure the highest level of data security, we
+              encourage users to safeguard their login credentials.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+            <h2 className="text-3xl font-semibold text-yellow-400 mb-6">
               4. Sharing Your Information
             </h2>
-            <p className="text-gray-700 mb-6">
-              Festify does not sell your personal information. Your data is shared only in the following cases:
+            <p className="text-gray-300 mb-6">
+              Festify does not sell your personal data. Your information is only
+              shared under these circumstances:
             </p>
-            <ul className="list-disc pl-6 text-gray-700 space-y-2">
-              <li>With trusted service providers to support platform functionality.</li>
-              <li>To comply with legal obligations or enforce our terms of service.</li>
-              <li>With your explicit consent for specific integrations or collaborations.</li>
+            <ul className="list-disc pl-6 space-y-2 text-teal-400">
+              <li>
+                With trusted partners or service providers to enhance platform
+                performance.
+              </li>
+              <li>To comply with legal requirements or court orders.</li>
+              <li>
+                With your explicit consent for specific integrations or
+                partnerships.
+              </li>
             </ul>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+            <h2 className="text-3xl font-semibold text-yellow-400 mb-6">
               5. Your Rights
             </h2>
-            <p className="text-gray-700 mb-6">
-              You have the right to access, modify, or delete your data at any time. If you wish to exercise these rights, please contact us at:
+            <p className="text-gray-300 mb-6">
+              You have the right to access, update, or delete your data. To
+              exercise your rights, please contact us at:
             </p>
-            <p className="text-gray-700 font-medium">
-              <a href="mailto:aditya895754@gmail.com" className="text-blue-600 underline">
+            <p className="text-teal-400 font-medium">
+              <a href="mailto:aditya895754@gmail.com" className="underline">
                 aditya895754@gmail.com
               </a>
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+            <h2 className="text-3xl font-semibold text-yellow-400 mb-6">
               6. Changes to This Policy
             </h2>
-            <p className="text-gray-700">
-              Festify may update this Privacy Policy periodically to reflect changes in our services or legal requirements. We recommend reviewing this page regularly for updates.
+            <p className="text-gray-300">
+              Festify may update this Privacy Policy from time to time to
+              reflect changes in our practices or comply with legal
+              requirements. Please revisit this page periodically to stay
+              informed.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+            <h2 className="text-3xl font-semibold text-yellow-400 mb-6">
               7. Contact Us
             </h2>
-            <p className="text-gray-700">
-              For questions or concerns about this Privacy Policy, please reach out to us at:
+            <p className="text-gray-300 mb-4">
+              For questions, concerns, or requests regarding this Privacy
+              Policy, please contact us at:
             </p>
-            <p className="text-gray-700 font-medium">
-              <a href="mailto:aditya895754@gmail.com" className="text-blue-600 underline">
+            <p className="text-teal-400 font-medium">
+              <a href="mailto:aditya895754@gmail.com" className="underline">
                 aditya895754@gmail.com
               </a>
             </p>

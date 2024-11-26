@@ -9,7 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 const ManagerDashboard = () => {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState("profile"); // Default to Profile
+  const [activeTab, setActiveTab] = useState("profile");
   const { token } = useAuth();
   const navigate = useNavigate();
 
@@ -73,30 +73,30 @@ const ManagerDashboard = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-indigo-500 to-purple-600">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-white"></div>
+      <div className="flex justify-center items-center min-h-screen bg-charcoal">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-teal-400"></div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-200 via-gray-100 to-white">
+    <div className="min-h-screen bg-charcoal text-white">
       <div className="flex flex-col lg:flex-row">
         {/* Sidebar */}
-        <aside className="lg:w-1/4 bg-white shadow-lg lg:min-h-screen p-6 flex flex-col">
-          <h1 className="text-3xl font-extrabold bg-gradient-to-r from-indigo-500 to-purple-500 text-transparent bg-clip-text mb-8">
+        <aside className="lg:w-1/4 bg-gray-800 shadow-xl lg:min-h-screen p-6 flex flex-col">
+          <h1 className="text-3xl font-extrabold bg-gradient-to-r from-teal-400 to-yellow-400 text-transparent bg-clip-text mb-8">
             Manager Dashboard
           </h1>
-          <p className="text-sm text-gray-600 mb-6">
-            Welcome, <span className="font-medium">{userData?.name}</span>
+          <p className="text-sm text-gray-400 mb-6">
+            Welcome, <span className="font-medium text-yellow-300">{userData?.name}</span>
           </p>
           <nav className="space-y-4">
             <button
               onClick={() => setActiveTab("profile")}
               className={`w-full py-3 text-left text-lg font-medium rounded-md transition ${
                 activeTab === "profile"
-                  ? "bg-indigo-500 text-white"
-                  : "text-gray-700 hover:bg-indigo-100"
+                  ? "bg-gradient-to-r from-teal-400 to-yellow-400 text-charcoal"
+                  : "text-gray-400 hover:bg-gray-700"
               }`}
             >
               Profile
@@ -105,8 +105,8 @@ const ManagerDashboard = () => {
               onClick={() => setActiveTab("events")}
               className={`w-full py-3 text-left text-lg font-medium rounded-md transition ${
                 activeTab === "events"
-                  ? "bg-indigo-500 text-white"
-                  : "text-gray-700 hover:bg-indigo-100"
+                  ? "bg-gradient-to-r from-teal-400 to-yellow-400 text-charcoal"
+                  : "text-gray-400 hover:bg-gray-700"
               }`}
             >
               My Events
@@ -125,28 +125,26 @@ const ManagerDashboard = () => {
             pauseOnFocusLoss
             draggable
             pauseOnHover
-            theme="colored"
+            theme="dark"
           />
 
           {activeTab === "profile" && (
-            <div className="bg-white shadow-xl rounded-lg p-6">
-              <h2 className="text-2xl font-bold text-indigo-600 mb-4">
+            <div className="bg-gray-800 shadow-2xl rounded-xl p-6">
+              <h2 className="text-2xl font-bold text-teal-400 mb-4">
                 Profile Information
               </h2>
               <div className="space-y-4">
                 <div className="flex items-center space-x-4">
-                  <User className="h-6 w-6 text-indigo-500" />
-                  <span className="text-gray-700 font-medium">
-                    {userData?.name}
-                  </span>
+                  <User className="h-6 w-6 text-teal-400" />
+                  <span className="text-yellow-300 font-medium">{userData?.name}</span>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <Mail className="h-6 w-6 text-indigo-500" />
-                  <span className="text-gray-700">{userData?.email}</span>
+                  <Mail className="h-6 w-6 text-teal-400" />
+                  <span className="text-yellow-300">{userData?.email}</span>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <CalendarDays className="h-6 w-6 text-indigo-500" />
-                  <span className="text-gray-700">
+                  <CalendarDays className="h-6 w-6 text-teal-400" />
+                  <span className="text-yellow-300">
                     Events Created: {userData?.eventsCreated?.length || 0}
                   </span>
                 </div>
@@ -155,48 +153,48 @@ const ManagerDashboard = () => {
           )}
 
           {activeTab === "events" && (
-            <div className="bg-white shadow-xl rounded-lg p-6">
-              <h2 className="text-2xl font-bold text-indigo-600 mb-4">
+            <div className="bg-gray-800 shadow-2xl rounded-xl p-6">
+              <h2 className="text-2xl font-bold text-teal-400 mb-4">
                 My Events
               </h2>
               <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {userData?.eventsCreated?.map((event) => (
                   <div
                     key={event._id}
-                    className="bg-gray-50 shadow-md rounded-lg p-4 hover:shadow-lg transition"
+                    className="bg-gradient-to-br from-gray-700 via-gray-800 to-charcoal shadow-lg rounded-xl p-4 transform transition hover:scale-105 hover:shadow-xl"
                   >
-                    <h3 className="text-lg font-semibold text-indigo-600">
+                    <h3 className="text-lg font-semibold text-yellow-300">
                       {event.eventName}
                     </h3>
-                    <div className="mt-2 text-sm text-gray-500">
+                    <div className="mt-2 text-sm text-gray-400">
                       <div className="flex items-center space-x-2">
-                        <CalendarDays className="h-4 w-4 text-indigo-500" />
+                        <CalendarDays className="h-4 w-4 text-teal-400" />
                         <span>{format(new Date(event.eventDate), "PPP")}</span>
                       </div>
                       <div className="flex items-center space-x-2 mt-1">
-                        <MapPin className="h-4 w-4 text-indigo-500" />
+                        <MapPin className="h-4 w-4 text-teal-400" />
                         <span>{event.eventPlace}</span>
                       </div>
                     </div>
-                    <p className="mt-4 text-sm text-gray-700 line-clamp-3">
+                    <p className="mt-4 text-sm text-gray-300 line-clamp-3">
                       {event.eventDescription}
                     </p>
                     <div className="flex justify-end space-x-2 mt-4">
                       <button
                         onClick={handleUserRedirect}
-                        className="p-2 text-indigo-600 bg-indigo-50 hover:bg-indigo-100 rounded-full transition"
+                        className="p-2 text-teal-400 bg-gray-700 hover:bg-gray-600 rounded-full transition"
                       >
                         <User className="h-5 w-5" />
                       </button>
                       <button
                         onClick={() => handleEditEvent(event._id)}
-                        className="p-2 text-indigo-600 bg-indigo-50 hover:bg-indigo-100 rounded-full transition"
+                        className="p-2 text-blue-400 bg-gray-700 hover:bg-gray-600 rounded-full transition"
                       >
                         <Edit className="h-5 w-5" />
                       </button>
                       <button
                         onClick={() => handleDeleteEvent(event._id)}
-                        className="p-2 text-red-600 bg-red-50 hover:bg-red-100 rounded-full transition"
+                        className="p-2 text-red-400 bg-gray-700 hover:bg-gray-600 rounded-full transition"
                       >
                         <Trash2 className="h-5 w-5" />
                       </button>
@@ -213,3 +211,4 @@ const ManagerDashboard = () => {
 };
 
 export default ManagerDashboard;
+
