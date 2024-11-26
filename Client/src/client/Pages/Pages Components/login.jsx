@@ -30,7 +30,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:8000/login", {
+      const response = await fetch("https://festify-61ym.onrender.com/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

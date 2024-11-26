@@ -22,7 +22,7 @@ const Signup = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:8000/signup", {
+      const response = await fetch("https://festify-61ym.onrender.com/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

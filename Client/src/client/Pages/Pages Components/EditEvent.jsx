@@ -20,7 +20,7 @@ const EditEvent = () => {
   useEffect(() => {
     const fetchEventData = async () => {
       try {
-        const response = await fetch(`http://localhost:8000/event/${eventId}`, {
+        const response = await fetch(`https://festify-61ym.onrender.com/event/${eventId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -59,7 +59,7 @@ const EditEvent = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:8000/event/${eventId}`, {
+      const response = await fetch(`https://festify-61ym.onrender.com/event/${eventId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

@@ -46,7 +46,7 @@ const CreateEvent = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:8000/createEvent", {
+      const response = await fetch("https://festify-61ym.onrender.com/createEvent", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
