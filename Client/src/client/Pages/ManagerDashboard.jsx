@@ -42,7 +42,7 @@ const ManagerDashboard = () => {
 
   const handleDeleteEvent = async (eventId) => {
     try {
-      const response = await fetch(`http://localhost:8000/event/${eventId}`, {
+      const response = await fetch(`https://festify-61ym.onrender.com/event/${eventId}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
