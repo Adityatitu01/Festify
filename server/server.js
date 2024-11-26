@@ -10,7 +10,7 @@ const cors = require('cors')
 //<--------------------------------------CORS DEFINITION------------------------------------------------->
 
 var corsOptions = {
-    origin: 'https://festify-ease.netlify.app/',
+    origin: 'https://festify-ease.netlify.app',
     methods:"GET, POST,PUT,DELETE, PATCH, HEAD",
     optionsSuccessStatus: 200,
     Credentials:true,
