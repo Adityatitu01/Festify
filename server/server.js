@@ -7,7 +7,8 @@ const PORT = process.env.PORT || 3003;
 const errorMiddleware = require('./middlewares/error-middleware')
 const cors = require('cors')
 
-//<--------------------------------------CORS DEFINITION------------------------------------------------->
+//<--------------------------------------CORS DEFINITION-----------------------------------------------> .
+
 
 var corsOptions = {
     origin: 'http://localhost:5173',
