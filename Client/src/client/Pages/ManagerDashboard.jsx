@@ -21,6 +21,7 @@ const ManagerDashboard = () => {
             Authorization: `Bearer ${token}`,
           },
         });
+        if (!response.ok) throw new Error("Failed to fetch user data");
         const data = await response.json();
         setUserData(data.msg);
         setLoading(false);
@@ -211,4 +212,3 @@ const ManagerDashboard = () => {
 };
 
 export default ManagerDashboard;
-

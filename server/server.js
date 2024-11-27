@@ -29,6 +29,11 @@ app.use(errorMiddleware);
 
 connectDB();
 
+const path = require('path');
+app.use((req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
 app.listen(PORT, () => {
     console.log(`I'm running on port: ${PORT}`);
 });
