@@ -11,7 +11,7 @@ const cors = require('cors')
 
 
 var corsOptions = {
-    origin: 'http://localhost:5173',
+    origin: 'https://festify-sigma.vercel.app',
     methods:"GET, POST,PUT,DELETE, PATCH, HEAD",
     optionsSuccessStatus: 200,
     Credentials:true,
